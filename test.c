@@ -11,8 +11,7 @@ void test_hmac(const char* algorithm)
    if(result != NULL)
    {
       printf("%s result = [%s]\n", algorithm, result);
-      free(result);
-      result = NULL;
+      delete result;
    }
 }
 
