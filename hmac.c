@@ -6,7 +6,6 @@
 #define HMAC_UPDATE_FAIL 3
 #define HMAC_FINAL_FAIL 4
 #define HMAC_FINAL_INVALID_OUTPUT 5
-#define MEMORY_ERROR 6
 
 int hmac(const char* str, const char* key, const char* algorithm, char *result)
 {
