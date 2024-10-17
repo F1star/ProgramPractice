@@ -7,7 +7,7 @@ void test_hmac(const char* algorithm)
 {
    const char* src = "kjhdskfhdskfjhdskjfdskfdskfjsdkfjds";
    const char* key = "kjshfkds";
-   char* result = hmac(src, strlen(src), key, strlen(key), algorithm);
+   char* result = hmac(src, key, algorithm);
    if(result != NULL)
    {
       printf("%s result = [%s]\n", algorithm, result);

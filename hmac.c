@@ -1,8 +1,11 @@
 #include <openssl/ssl.h>
 #include <stdio.h>
 
-char* hmac(const char* str, int str_length, const char* key, int key_length, const char* algorithm)
+char* hmac(const char* str, const char* key, const char* algorithm)
 {
+   int str_length = strlen(str);
+   int key_length = strlen(key);
+
    // 根据算法名称获得算法引擎
    const EVP_MD* engine = EVP_get_digestbyname(algorithm);
    if(engine == NULL)
