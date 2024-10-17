@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "hmac.h"
+
+#define RESULT_MAX_SIZE 1024
 
 void test_hmac(const char* algorithm)
 {
    const char* src = "kjhdskfhdskfjhdskjfdskfdskfjsdkfjds";
    const char* key = "kjshfkds";
-   char *result;
+   char *result = (char*)malloc(sizeof(char) * RESULT_MAX_SIZE);
    int code = hmac(src, key, algorithm, result);
    switch (code){
       case 0 :
          printf("%s result = [%s]\n", algorithm, result);
-         delete result;
          break;
       case 1:
          printf("invalid algorithm %s for hmac\n", algorithm);
@@ -30,6 +32,8 @@ void test_hmac(const char* algorithm)
          printf("HMAC_Final return invalid output length %s\n", result);
          break;
    }
+   free(result);
+   result = NULL;
 }
 
 int main()
